@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Token Info</title>
   <style>
     body {
@@ -12,9 +12,32 @@
       background-color: #f4f4f4;
       color: #333;
     }
+    header {
+      background-color: #222;
+      color: #fff;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      font-size: 1.2rem;
+      margin: 0;
+    }
+    header nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.5rem;
+      border-radius: 4px;
+    }
+    header nav a:hover {
+      background-color: #444;
+    }
+
     .token-section {
       max-width: 960px;
-      margin: 0 auto;
+      margin: 2rem auto;
       padding: 2rem 1rem;
       background-color: #fff;
       box-shadow: 0 0 10px rgba(0,0,0,0.05);
@@ -42,6 +65,7 @@
       line-height: 1.6;
       margin-top: 1rem;
     }
+
     @media (max-width: 600px) {
       .token-section {
         padding: 1.5rem 1rem;
@@ -57,35 +81,38 @@
 </head>
 <body>
 
+  <header>
+    <h1>The Pen's Den</h1>
+    <nav>
+      <a href="index.html">Home</a>
+    </nav>
+  </header>
+
   <section class="token-section" id="token-info">
     <h2>Token Information</h2>
 
     <h3>Token Allocation</h3>
     <ul>
       <li><strong>50% – Community & Game Rewards:</strong><br>
-        A significant portion of tokens will be allocated to players as in-game rewards. This begins with <em>Zombie Invasion</em> and will extend to future titles within the ecosystem.</li>
+        Tokens earned in-game, beginning with <em>Zombie Invasion</em> and expanding to future titles.</li>
       <li><strong>20% – Team:</strong><br>
-        Reserved for the creators and contributors. Tokens may be subject to vesting schedules to ensure long-term commitment and project success.</li>
+        For creators and contributors. Vesting applies to ensure long-term commitment.</li>
       <li><strong>20% – Listing & Marketing:</strong><br>
-        For exchange listings, influencer campaigns, partnerships, and growing visibility and adoption.</li>
+        Supports visibility through listings, campaigns, and partnerships.</li>
       <li><strong>10% – Reserve & Ecosystem Growth:</strong><br>
-        Held to support future games, community proposals, and ecosystem expansion.</li>
+        Backing expansion across future games and proposals.</li>
     </ul>
 
     <h3>How the Token Gains Value</h3>
-    <p>
-      The token is backed by real in-game economics and external revenue:
-    </p>
     <ul>
-      <li><strong>50% of revenue from Zombie Invasion</strong> will be used to apply liquidity to the token, starting at launch and continuing afterward.</li>
-      <li>This ensures the token has financial backing and growing support as the game succeeds.</li>
-      <li>Future games added to the ecosystem will also allocate a portion of their revenue to token liquidity.</li>
-      <li>Tokens earned in-game will have real utility: trade them, hold them, or use them across titles in our growing ecosystem.</li>
+      <li><strong>50% of Zombie Invasion revenue</strong> supports liquidity from day one.</li>
+      <li>Future titles will contribute portions of revenue to token support.</li>
+      <li>Tokens offer true utility: earn, trade, or use across titles.</li>
     </ul>
 
     <h3>Launch Timeline</h3>
     <p><strong>Market Launch Date: TBD</strong><br>
-    We are focused on ensuring a healthy, well-supported token economy before launching. Our goal is long-term sustainability, not hype-driven short-term gains.</p>
+    Focus is on long-term viability over hype. Launch timing will support stability and sustainability.</p>
   </section>
 
 </body>
