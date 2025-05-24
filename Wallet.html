@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Claim COAL Tokens</title>
+  <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
+  <style>
+    body { font-family: sans-serif; text-align: center; padding: 2rem; background: #1e1e1e; color: #eee; }
+    button { padding: 0.5rem 1rem; font-size: 1rem; margin: 1rem; background: #ff9800; color: #000; border: none; border-radius: 5px; cursor: pointer; }
+    #wallet { margin-top: 1rem; font-weight: bold; }
+    #status { margin-top: 2rem; }
+  </style>
+</head>
+<body>
+  <h1>Claim Your $COAL Tokens</h1>
+  <button id="connectWallet">Connect Wallet</button>
+  <div id="wallet"></div>
+  <button id="claimBtn" disabled>Claim Rewards</button>
+  <div id="status"></div>
+
+  <script>
+    const connectWalletBtn = document.getElementById('connectWallet');
+    const claimBtn = document.getElementById('claimBtn');
+    const walletDisplay = document.getElementById('wallet');
+    const status = document.getElementById('status');
+
+    let walletAddress = null;
+
+    connectWalletBtn.addEventListener('click', async () => {
+      try {
+        const resp = await window.solana.connect();
+        walletAddress = resp.publicKey.toString();
+        walletDisplay.textContent = `Wallet: ${walletAddress}`;
+        claimBtn.disabled = false;
+      } catch (err) {
