@@ -3,34 +3,92 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Claim $COAL Tokens</title>
+  <title>Wallet Connect</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #111;
-      color: #f5f5f5;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
-      margin: 0;
-      padding: 20px;
+      min-height: 100vh;
       text-align: center;
     }
-    h1 {
-      margin-bottom: 10px;
+
+    .container {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 400px;
+      width: 90%;
     }
+
     button {
-      background: #ff9800;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
       border: none;
-      padding: 10px 20px;
-      margin: 10px;
-      color: #111;
+      background-color: #3498db;
+      color: white;
       border-radius: 5px;
-      font-size: 16px;
       cursor: pointer;
     }
-    #result {
-      margin-top: 20px;
-      font-size: 14px;
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    .nav {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: #3498db;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="nav">
+    <a href="index.html">← Home</a>
+  </div>
+
+  <div class="container">
+    <h2>Connect Your Wallet</h2>
+    <p>Submit your wallet address to receive rewards.</p>
+    <button onclick="connectWallet()">Connect Wallet</button>
+    <p id="status"></p>
+  </div>
+
+  <script>
+    async function connectWallet() {
+      if (window.solana && window.solana.isPhantom) {
+        try {
+          const resp = await window.solana.connect();
+          const walletAddress = resp.publicKey.toString();
+          document.getElementById("status").innerText = "Wallet connected: " + walletAddress;
+
+          // Send to Google Sheet
+          const scriptURL = "https://script.google.com/macros/s/YOUR_SCRIPT_URL_HERE/exec";
+          await fetch(scriptURL + "?wallet=" + walletAddress);
+
+        } catch (err) {
+          console.error(err);
+          document.getElementById("status").innerText = "Wallet connection failed.";
+        }
+      } else {
+        alert("Phantom Wallet not found. Please install it.");
+      }
+    }
+  </script>
+
+</body>
+</html>
